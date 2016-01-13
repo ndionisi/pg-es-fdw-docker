@@ -1,0 +1,14 @@
+elasticsearch:
+  container_name: elasticsearch
+  build: elasticsearch
+  command: elasticsearch -Des.node.name="poc"
+  ports:
+    - "9200:9200"
+
+pg-es-fdw:
+  container_name: pg-es-fdw
+  build: pg-es-fdw
+  environment:
+    - "POSTGRES_USER=user"
+    - "POSTGRES_PASSWORD=password"
+    - "POSTGRES_DB=poc"
